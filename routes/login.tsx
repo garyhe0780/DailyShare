@@ -3,18 +3,14 @@ import { h } from 'preact'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import { setCookie, getCookies } from '$std/http/cookie.ts'
 import { supabase } from '../db/supabase.ts'
-import { AppInfo } from '../types/index.ts'
-import CustomVariables from '../components/CustomVariables.tsx'
 
 interface Data {
-  appInfo: AppInfo
   message?: string
 }
 
 export const handler: Handlers<Data> = {
   GET(req, ctx) {
     const maybeUser = getCookies(req.headers)['user']
-    const appInfo = ctx.state.appInfo as AppInfo
     if (maybeUser) {
       ctx.state.user = JSON.parse(atob(maybeUser))
       const url = new URL(req.url)
@@ -23,18 +19,17 @@ export const handler: Handlers<Data> = {
       return Response.redirect(url, 303)
     }
 
-    return ctx.render({ appInfo })
+    return ctx.render({ })
   },
 
   async POST(req, ctx) {
-    const appInfo = ctx.state.appInfo as AppInfo
     const formData = await req.formData()
     const email = formData.get('email')?.toString() || ''
     const password = formData.get('password')?.toString() || ''
 
     const { user, error } = await supabase.auth.signIn({ email, password })
     if (error) {
-      return ctx.render({ appInfo, message: error.message })
+      return ctx.render({ message: error.message })
     }
 
     const resp = new Response(null, {
@@ -54,22 +49,13 @@ export const handler: Handlers<Data> = {
 }
 
 export default function Login({ data }: PageProps<Data>) {
-  const { message, appInfo } = data
+  const { message } = data
 
   return (
     <div class="grid h-screen w-screen relative dark:bg-black">
-      <CustomVariables appInfo={appInfo} />
       <div
         class="pt-16 sm:pt-[25vh] flex flex-col items-center h-full w-full m-auto dark:text-white"
       >
-        <div class="flex flex-col items-center mb-4">
-          <div
-            class="flex items-center justify-center text-white text-xl h-full w-auto"
-          >
-            <img src={appInfo.logo} class="h-16"/>
-          </div>
-        </div>
-
         <form
           class="flex flex-col gap-[20px] p-8 sm:border-1 sm:shadow-lg sm:rounded-lg w-[340px] sm:w-[450px]"
           method="POST"

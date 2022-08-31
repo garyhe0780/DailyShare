@@ -49,7 +49,7 @@ export default function Home({ data, url }: PageProps<Data>) {
   const { query } = data
 
   return (
-    <div class="max-w-[800px] pt-8 m-auto">
+    <div class="max-w-[800px] pt-8 px-4 m-auto">
       <form class="flex flex-col gap-4" method="POST">
         <TitleEditor title="" />
         <Editor placeholder="Write your content..." />
