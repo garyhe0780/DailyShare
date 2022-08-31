@@ -30,7 +30,7 @@ export default function ArticleDetail({ data }: PageProps<Data>) {
 
   return (
     <div class="flex flex-col max-w-[800px] pt-8 px-4 pb-20 gap-8 m-auto">
-      <a href="/" class="text-black dark:text-white flex items-center gap-4 mb-4">
+      <a href="javascript:history.go(-1)" class="text-black dark:text-white flex items-center gap-4 mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
