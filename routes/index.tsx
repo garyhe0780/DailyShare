@@ -59,7 +59,7 @@ function ArticleSummary({ article }: { article: Article }) {
   return (
     <a class="flex gap-4 flex-col sm:flex-row" href={`/articles/${article.id}`}>
       <img
-        src="https://images.unsplash.com/photo-1657299156594-50426d5125a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
+        src={article.image_url || 'https://images.unsplash.com/photo-1657299156594-50426d5125a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80'}
         class="w-full sm:w-[200px] h-[184px] object-cover"
         loading="lazy"
       />
