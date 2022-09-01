@@ -28,15 +28,15 @@ export default function App({ Component }: AppProps) {
         />
         <style>{
           `:root {
-            --primary-100: ${colors[0][100]};
-            --primary-200: ${colors[0][200]};
-            --primary-300: ${colors[0][300]};
-            --primary-400: ${colors[0][400]};
-            --primary-500: ${colors[0][500]};
-            --primary-600: ${colors[0][600]};
-            --primary-700: ${colors[0][700]};
-            --primary-800: ${colors[0][800]};
-            --primary-900: ${colors[0][900]};
+            --primary-100: ${colors[1][100]};
+            --primary-200: ${colors[1][200]};
+            --primary-300: ${colors[1][300]};
+            --primary-400: ${colors[1][400]};
+            --primary-500: ${colors[1][500]};
+            --primary-600: ${colors[1][600]};
+            --primary-700: ${colors[1][700]};
+            --primary-800: ${colors[1][800]};
+            --primary-900: ${colors[1][900]};
           }`}</style>
       </Head>
       <Component />
