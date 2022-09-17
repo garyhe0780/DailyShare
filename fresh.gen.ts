@@ -2,19 +2,22 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/api/joke.ts";
-import * as $4 from "./routes/articles/[id].tsx";
-import * as $5 from "./routes/articles/create.tsx";
-import * as $6 from "./routes/forgot-password.tsx";
-import * as $7 from "./routes/index.tsx";
-import * as $8 from "./routes/login.tsx";
-import * as $9 from "./routes/logout.tsx";
-import * as $10 from "./routes/set-password.tsx";
+import * as $4 from "./routes/api/post.ts";
+import * as $5 from "./routes/articles/[id].tsx";
+import * as $6 from "./routes/articles/create.tsx";
+import * as $7 from "./routes/forgot-password.tsx";
+import * as $8 from "./routes/index.tsx";
+import * as $9 from "./routes/login.tsx";
+import * as $10 from "./routes/logout.tsx";
+import * as $11 from "./routes/set-password.tsx";
 import * as $$0 from "./islands/Editor.tsx";
-import * as $$1 from "./islands/TitleEditor.tsx";
+import * as $$1 from "./islands/SyncPost.tsx";
+import * as $$2 from "./islands/TitleEditor.tsx";
 
 const manifest = {
   routes: {
@@ -22,19 +25,22 @@ const manifest = {
     "./routes/_app.tsx": $1,
     "./routes/_middleware.ts": $2,
     "./routes/api/joke.ts": $3,
-    "./routes/articles/[id].tsx": $4,
-    "./routes/articles/create.tsx": $5,
-    "./routes/forgot-password.tsx": $6,
-    "./routes/index.tsx": $7,
-    "./routes/login.tsx": $8,
-    "./routes/logout.tsx": $9,
-    "./routes/set-password.tsx": $10,
+    "./routes/api/post.ts": $4,
+    "./routes/articles/[id].tsx": $5,
+    "./routes/articles/create.tsx": $6,
+    "./routes/forgot-password.tsx": $7,
+    "./routes/index.tsx": $8,
+    "./routes/login.tsx": $9,
+    "./routes/logout.tsx": $10,
+    "./routes/set-password.tsx": $11,
   },
   islands: {
     "./islands/Editor.tsx": $$0,
-    "./islands/TitleEditor.tsx": $$1,
+    "./islands/SyncPost.tsx": $$1,
+    "./islands/TitleEditor.tsx": $$2,
   },
   baseUrl: import.meta.url,
+  config,
 };
 
 export default manifest;

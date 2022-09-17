@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
-
 export default function TabItem(props: {
   href: string
   activated: boolean

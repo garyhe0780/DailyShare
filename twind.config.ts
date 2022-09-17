@@ -1,10 +1,11 @@
 
 
-import { DarkMode } from "twind";
-import * as colors from "twind/colors";
+// import { DarkMode } from "twind";
+import { Options } from "$fresh/plugins/twind.ts";
 
 /** @type {import("$fresh/plugins/twind.ts").Options} */
 export default {
+  selfURL: import.meta.url,
   // darkMode: "class" as DarkMode,
   mode: "silent",
   theme: {
@@ -121,4 +122,4 @@ export default {
       },
     },
   },
-};
+} as Options;

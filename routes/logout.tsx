@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import { deleteCookie } from '$std/http/cookie.ts'
 import { supabase } from '../db/supabase.ts'

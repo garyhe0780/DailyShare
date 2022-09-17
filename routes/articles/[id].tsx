@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
 import { Article } from '../../types/index.ts'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import { supabase } from '../../db/supabase.ts'

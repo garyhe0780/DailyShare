@@ -1,14 +1,13 @@
-/** @jsx h */
-import { h } from 'preact'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import Editor from '../../islands/Editor.tsx'
 import TitleEditor from '../../islands/TitleEditor.tsx'
-import { supabase } from "../../db/supabase.ts";
-import { Article } from '../../types/article.ts';
+import { supabase } from '../../db/supabase.ts'
+import { Article } from '../../types/article.ts'
+import SyncPost from '../../islands/SyncPost.tsx'
 
 interface Data {
   query: string
-	message?: string
+  message?: string
 }
 
 export const handler: Handlers<Data> = {
@@ -26,14 +25,14 @@ export const handler: Handlers<Data> = {
     const plain_content = formData.get('plain_content')?.toString() || ''
 
     const { data, error } = await supabase.from<Article>('articles').insert({
-			title,
-			content,
+      title,
+      content,
       plain_content,
-      plain_title
-		})
+      plain_title,
+    })
 
     if (error) {
-      return ctx.render({  query: '', message: error.message })
+      return ctx.render({ query: '', message: error.message })
     }
 
     const resp = new Response(null, {
@@ -53,8 +52,8 @@ export default function Home({ data, url }: PageProps<Data>) {
       <form class="flex flex-col gap-4" method="POST">
         <TitleEditor title="" />
         <Editor placeholder="Write your content..." />
-				<button>Save</button>
       </form>
+      <SyncPost />
     </div>
   )
 }

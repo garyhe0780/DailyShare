@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import Tab from '../components/Tab.tsx'
 import TabItem from '../components/TabItem.tsx'

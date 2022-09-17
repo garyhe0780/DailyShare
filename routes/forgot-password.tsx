@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
 import { Handlers, PageProps } from '$fresh/server.ts'
 import { setCookie, getCookies } from '$std/http/cookie.ts'
 
